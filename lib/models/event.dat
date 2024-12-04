@@ -1,0 +1,25 @@
+class Event {
+  final String id;
+  final String name;
+  final String date;
+  final String location;
+
+  Event({required this.id, required this.name, required this.date, required this.location});
+
+  factory Event.fromMap(Map<String, dynamic> data, String id) {
+    return Event(
+      id: id,
+      name: data['name'] ?? '',
+      date: data['date'] ?? '',
+      location: data['location'] ?? '',
+    );
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'name': name,
+      'date': date,
+      'location': location,
+    };
+  }
+}
